@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Font Size Adjuster</title>
+</head>
+<body>
+    <p id="text">Adjust my size!</p>
+    <button onclick="adjustFont(1)">🔺 Increase</button>
+    <button onclick="adjustFont(-1)">🔻 Decrease</button>
+
+    <script>
+        function adjustFont(change) {
+            let text = document.getElementById("text");
+            let size = parseInt(window.getComputedStyle(text).fontSize);
+            text.style.fontSize = (size + change) + "px";
+        }
+    </script>
+</body>
+</html>
