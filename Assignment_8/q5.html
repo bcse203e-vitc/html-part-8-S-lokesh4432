@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Word Counter</title>
+</head>
+<body>
+    <textarea id="textArea"></textarea>
+    <p>Word count: <span id="wordCount">0</span></p>
+
+    <script>
+        document.getElementById('textArea').addEventListener('input', function() {
+            let words = this.value.trim().split(/\s+/).filter(Boolean);
+            document.getElementById('wordCount').textContent = words.length;
+        });
+    </script>
+</body>
+</html>
