@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Image Carousel</title>
+</head>
+<body>
+    <img id="carousel" src="img1.jpg" width="300">
+    <button onclick="prevImage()">Previous</button>
+    <button onclick="nextImage()">Next</button>
+
+    <script>
+        let images = ["img1.jpg", "img2.jpg", "img3.jpg"];
+        let index = 0;
+
+        function updateImage() {
+            document.getElementById("carousel").src = images[index];
+        }
+
+        function nextImage() {
+            index = (index + 1) % images.length;
+            updateImage();
+        }
+
+        function prevImage() {
+            index = (index - 1 + images.length) % images.length;
+            updateImage();
+        }
+
+        setInterval(nextImage, 3000);
+    </script>
+</body>
+</html>
