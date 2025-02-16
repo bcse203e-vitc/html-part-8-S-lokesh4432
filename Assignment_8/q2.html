@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Form Validation</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="name" placeholder="Name"><span id="nameError"></span><br>
+        <input type="email" id="email" placeholder="Email"><span id="emailError"></span><br>
+        <input type="password" id="password" placeholder="Password"><span id="passError"></span><br>
+    </form>
+
+    <script>
+        document.getElementById('name').addEventListener('input', function() {
+            this.nextElementSibling.textContent = this.value ? '' : 'Name is required';
+        });
+
+        document.getElementById('email').addEventListener('input', function() {
+            let valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value);
+            this.nextElementSibling.textContent = valid ? '' : 'Invalid email';
+        });
+
+        document.getElementById('password').addEventListener('input', function() {
+            let valid = /^(?=.*[A-Z])(?=.*\d).{8,}$/.test(this.value);
+            this.nextElementSibling.textContent = valid ? '' : 'At least 8 chars, 1 uppercase, 1 number';
+        });
+    </script>
+</body>
+</html>
